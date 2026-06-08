@@ -1,11 +1,8 @@
-from fastapi import APIRouter
-from src.services.yolo_service import YOLOService
+﻿from fastapi import APIRouter
+from src.services import yolo_service
 
 router = APIRouter()
 
-yolo_service = YOLOService()
-
-
 @router.get("/counts")
-def get_counts():
-    return yolo_service.get_object_counts()
+def get_counts(camera_id: int = 0):
+    return yolo_service.get_object_counts(camera_id)
