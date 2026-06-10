@@ -48,6 +48,7 @@ from src.api.cameras import router as camera_router
 from src.api.detections import router as detection_router
 from src.api.counts import router as count_router
 from src.api.stream import router as stream_router
+from src.api.features import router as features_router
 from src.api.dashboard import router as dashboard_router
 from fastapi import Request
 
@@ -90,6 +91,10 @@ app.include_router(
 )
 app.include_router(
     stream_router,
+    prefix="/api"
+)
+app.include_router(
+    features_router,
     prefix="/api"
 )
 app.include_router(dashboard_router)
